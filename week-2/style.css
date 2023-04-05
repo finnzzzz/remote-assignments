@@ -137,10 +137,6 @@
   cursor: pointer;
 }
 
-.cancel-btn.active {
-  display: block;
-}
-
 /* ------------------------RWD------------------------- */
 
 @media (max-width: 799px) {
@@ -178,6 +174,10 @@
 
   .main-nav.active {
     display: flex;
+  }
+
+  .cancel-btn.active {
+    display: block;
   }
 }
 
