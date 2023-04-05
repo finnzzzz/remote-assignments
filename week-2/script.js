@@ -2,7 +2,7 @@ const toggleBtn = document.querySelector(".toggle-btn");
 const navbarLinks = document.querySelector(".main-nav");
 const banner = document.querySelector(".banner");
 const bannerTitle = document.querySelector(".banner-title");
-const CallBtn = document.querySelector(".btn");
+const callBtn = document.querySelector(".btn");
 const containerHide = document.querySelector(".container-hide");
 const cancelBtn = document.querySelector(".cancel-btn");
 
@@ -15,7 +15,7 @@ banner.addEventListener("click", () => {
   bannerTitle.textContent = "Have a Good Time!";
 });
 
-CallBtn.addEventListener("click", () => {
+callBtn.addEventListener("click", () => {
   containerHide.classList.remove("container-hide");
 });
 
