@@ -70,6 +70,10 @@ app.get("/getData", (req, res) => {
   }
 });
 
+app.get('/sum.html', (req, res) => {
+  res.sendFile('sum.html', {root: path.join(__dirname, 'public')});
+});
+
 app.listen(port, () => {
   console.log(`The app is running on localhost: ${port}`);
 });
