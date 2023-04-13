@@ -29,13 +29,13 @@
 
         fetch("/getData", {
           method: "POST",
-          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             number: value,
           }),
+          // mode: "no-cors",
         })
           .then(res => {
             return res.json();
