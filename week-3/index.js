@@ -8,10 +8,13 @@ const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
+app.set("view engine", "pug");
+
 app.get("/", (req, res) => {
   res.send("<h2 style='color: #ff7621;'>Hello AppWorksSchool</h2>");
 });
 
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
 
 app.post("/getData", (req, res) => {
@@ -68,6 +71,10 @@ app.get("/getData", (req, res) => {
   } else {
     res.send("Lack of Parameter");
   }
+});
+
+app.get("/myName", (req, res) => {
+  res.render("myName");
 });
 
 app.listen(port, () => {
