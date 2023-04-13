@@ -71,7 +71,7 @@ app.get("/getData", (req, res) => {
 });
 
 app.get('/sum.html', (req, res) => {
-  res.sendFile('sum.html', {root: path.join(__dirname, 'public')});
+  res.sendFile(path.join(__dirname, 'public', 'sum.html'));
 });
 
 app.listen(port, () => {
