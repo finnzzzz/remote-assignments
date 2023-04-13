@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
   res.send("<h2 style='color: #ff7621;'>Hello AppWorksSchool</h2>");
 });
 
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
 
 app.post("/getData", (req, res) => {
