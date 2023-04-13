@@ -12,11 +12,7 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "index.js"
-    },
-    {
-      "src": "/sum.html",
+      "src": "sum.html",
       "dest": "public/sum.html"
     }
   ]
