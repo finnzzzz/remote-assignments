@@ -1,0 +1,14 @@
+doctype html 
+html(lang='en')
+  head
+    title myName 
+  body
+  if name
+    h2 Hi🖐,  #{name}
+    form(action='/back', method='post')
+      button(type='submit') back
+  else
+    form(action='/trackName', method='get')
+      label Enter your name: 
+        input(type='text', name='name')
+      button(type='submit') submit

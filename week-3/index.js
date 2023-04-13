@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -7,6 +8,7 @@ app.use(express.json());
 const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.set("view engine", "pug");
 
@@ -73,7 +75,18 @@ app.get("/getData", (req, res) => {
 });
 
 app.get("/myName", (req, res) => {
-  res.render("myName");
+  res.render("myName", { name: req.cookies.name });
+});
+
+app.get("/trackName", (req, res) => {
+  const name = req.query.name;
+  res.cookie("name", name);
+  res.redirect("/myName");
+});
+
+app.post("/back", (req, res) => {
+  res.clearCookie("name");
+  res.redirect("/myName");
 });
 
 app.listen(port, () => {
