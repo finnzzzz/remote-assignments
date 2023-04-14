@@ -39,7 +39,7 @@ app.post("/getData", (req, res) => {
       //     result += "+";
       //   }
       // }
-      // res.send({ result: result });
+      // res.send({ result });
     }
   } else {
     res.send({ result: "Lack of Parameter" });
@@ -74,6 +74,7 @@ app.get("/getData", (req, res) => {
   }
 });
 
+// ---------------assignment 5-----------------------------
 app.get("/myName", (req, res) => {
   res.render("myName", { name: req.cookies.name });
 });
