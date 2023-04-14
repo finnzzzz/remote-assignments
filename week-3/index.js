@@ -7,7 +7,7 @@ app.use(express.json());
 
 const port = 3000;
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.set("view engine", "pug");
@@ -18,59 +18,21 @@ app.get("/", (req, res) => {
 
 app.use(express.static("public"));
 
-app.post("/getData", (req, res) => {
-  const number = req.body.number;
+app.get("/getData", (req, res) => {
+  const number = req.query.number;
+  let answer = 0;
+  console.log(number);
   if (number) {
     if (isNaN(number)) {
       res.send({ result: "Wrong Parameter" });
     } else {
-      // -----------v1
-      let result = [];
       for (let i = 1; i <= number; i++) {
-        result.push(i);
+        answer += i;
       }
-      res.send({ result: result.join("+") });
-
-      //-----------v2
-      // let result = "";
-      // for (let i = 1; i <= number; i++) {
-      //   result += i;
-      //   if (i !== parseInt(number)) {
-      //     result += "+";
-      //   }
-      // }
-      // res.send({ result });
+      res.send({ result: answer.toString() });
     }
   } else {
     res.send({ result: "Lack of Parameter" });
-  }
-});
-
-app.get("/getData", (req, res) => {
-  const number = req.query.number;
-  if (number) {
-    if (isNaN(number)) {
-      res.send("Wrong Parameter");
-    } else {
-      //-----------v1
-      // let result = [];
-      // for (let i = 1; i <= number; i++) {
-      //   result.push(i);
-      // }
-      // res.send(result.join('+'))
-
-      //-----------v2
-      let result = "";
-      for (let i = 1; i <= number; i++) {
-        result += i;
-        if (i !== parseInt(number)) {
-          result += "+";
-        }
-      }
-      res.send(result);
-    }
-  } else {
-    res.send("Lack of Parameter");
   }
 });
 

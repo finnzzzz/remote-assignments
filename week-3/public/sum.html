@@ -27,16 +27,7 @@
 
         const value = input.value;
 
-        fetch("/getData", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            number: value,
-          }),
-          // mode: "no-cors",
-        })
+        fetch(`/getData?number=${value}`, {})
           .then(res => {
             return res.json();
           })
