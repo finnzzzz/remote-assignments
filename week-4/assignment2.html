@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>assignment2</title>
+  </head>
+  <body>
+    <h2>remote week4 - assignment2</h2>
+    <div id="content"></div>
+    <script>
+      const url = "https://remote-assignment.s3.ap-northeast-1.amazonaws.com/products";
+      const content = document.getElementById("content");
+
+      function ajax(url) {
+        return fetch(url).then(res => res.json());
+      }
+      function render(data) {
+        let ul = document.createElement("ul");
+        let uls = [];
+        data.map(data => {
+          let li = document.createElement("li");
+          li.setAttribute("style", "white-space: pre-wrap");
+          li.textContent = `Product：${data.name}\nPrice：${data.price}\nDescription：${data.description}
+          `;
+          uls.push(li);
+        });
+        uls.map(data => {
+          ul.appendChild(data);
+        });
+        content.appendChild(ul);
+      }
+
+      ajax(url).then(data => {
+        render(data);
+      });
+    </script>
+  </body>
+</html>

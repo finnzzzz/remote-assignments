@@ -1,0 +1,188 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 56px;
+  background-color: #eee;
+  text-decoration: none;
+}
+
+.main-nav-title {
+  text-decoration: none;
+}
+
+.main-nav-title-link {
+  padding: 15px 0px;
+}
+
+.main-nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav-link {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+}
+
+.main-nav-link:hover {
+  color: red;
+}
+
+.main-nav-title,
+.main-nav-link:visited {
+  color: black;
+}
+
+.main-nav-link:hover {
+  color: grey;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccddee;
+  height: 190px;
+}
+
+.banner-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.section {
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-hide {
+  display: none;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 1120px;
+  margin: 0px 40px;
+}
+
+.content-box {
+  text-align: center;
+  width: 100%;
+  height: 145px;
+  padding: 10px;
+  background-color: #8899aa;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95px;
+}
+
+.btn {
+  border: none;
+  background-color: #ddeeff;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 16px;
+  right: 56px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 15px;
+}
+
+.toggle-bar {
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.cancel-btn {
+  display: none;
+  position: absolute;
+  font-size: 18px;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+/* ------------------------RWD------------------------- */
+
+@media (max-width: 799px) {
+  .toggle-btn {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .main-nav {
+    position: fixed;
+    background-color: white;
+    right: 0;
+    top: 0;
+    width: 265px;
+    height: 100%;
+    border-left: 1px solid rgb(195, 195, 195);
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+  }
+
+  .main-nav-link {
+    padding: 15px;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .cancel-btn.active {
+    display: block;
+  }
+}
+
+@media (max-width: 499px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
