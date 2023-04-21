@@ -1,5 +1,3 @@
-import React, { useState, useEffect, Children } from "react";
-
 export default function Counter({ value, increase }) {
   return (
     <div>
